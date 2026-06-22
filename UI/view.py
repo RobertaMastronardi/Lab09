@@ -6,9 +6,9 @@ class View(ft.UserControl):
         super().__init__()
         # page stuff
         self._page = page
-        self._page.title = "Template application using MVC and DAO"
+        self._page.title = "TdP 2025 - Lab 9"
         self._page.horizontal_alignment = 'CENTER'
-        self._page.theme_mode = ft.ThemeMode.DARK
+        self._page.theme_mode = ft.ThemeMode.LIGHT
         # controller (it is not initialized. Must be initialized in the main, after the controller is created)
         self._controller = None
         # graphical elements
@@ -20,7 +20,7 @@ class View(ft.UserControl):
 
     def load_interface(self):
         # title
-        self._title = ft.Text("Hello World", color="blue", size=24)
+        self._title = ft.Text("Flights Manager", color="blue", size=24)
         self._page.controls.append(self._title)
 
         #ROW with some controls
@@ -32,8 +32,9 @@ class View(ft.UserControl):
         )
 
         # button for the "hello" reply
-        self.btn_hello = ft.ElevatedButton(text="Hello", on_click=self._controller.handle_hello)
-        row1 = ft.Row([self.txt_name, self.btn_hello],
+        self._txtInDistanzaMin=ft.TextField(label="Distanza Minima")
+        self._btnAnalizza = ft.ElevatedButton(text="Analizza Aeroporti", on_click=self._controller.handleAnalizza)
+        row1 = ft.Row([self._txtInDistanzaMin, self._btnAnalizza],
                       alignment=ft.MainAxisAlignment.CENTER)
         self._page.controls.append(row1)
 
